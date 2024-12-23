@@ -114,7 +114,7 @@ return{
 								icon_hl = '@variable',
 								desc = 'Files',
 								group = 'Label',
-								action = 'Telescope find_files',
+								action = 'Telescope find_files hidden=true no_ignore=true',
 								key = 'f',
 							},
 							{
