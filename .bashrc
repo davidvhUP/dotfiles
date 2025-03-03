@@ -15,7 +15,7 @@ eval "$(zoxide init bash)"
 alias git_tree="git log --graph --topo-order --pretty='\''%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N\'' '"
 #alias vim=nvim
 #alias vim=/usr/bin/nvim
-alias oo='z /mnt/d/My\ Drive\ \(Personal\)/Obsidian\ Vault/Programming;nvim .'
+alias oo='z /mnt/d/My\ Drive\ \(Personal\)/Obsidian\ Vault/;nvim .'
 alias archive='tar -vczf'
 alias fzf='fzf-tmux -p'
 alias ollama-kill='sudo systemctl stop ollama'
@@ -26,6 +26,7 @@ alias lsg='ls | grep -i'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias lazygit_dotfiles='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # ls colours
 export LS_COLORS='ow=1;34:'
@@ -47,9 +48,16 @@ export PATH=$PATH:/home/davidvh/Scripts
 export EDITOR=ewrap.sh
 export HISTSIZE=10000 # Increase history size
 export PATH=$PATH:/usr/local/stata
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 
-# miniconda
+
+# Activate fzf key binds
+. /usr/share/fzf/key-bindings.bash
+
+# Run on startup
+neofetch
+
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 # >>> conda initialize >>>
@@ -67,8 +75,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# fzf
-. /usr/share/fzf/key-bindings.bash
 # miniconda
 if [[ -n "$TMUX" ]] then
   export flavor='conda'
