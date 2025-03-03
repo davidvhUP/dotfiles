@@ -7,7 +7,6 @@
 
 PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # zoxide
 eval "$(zoxide init bash)"
@@ -51,6 +50,25 @@ export PATH=$PATH:/usr/local/stata
 # miniconda
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # fzf
 . /usr/share/fzf/key-bindings.bash
+# miniconda
+if [[ -n "$TMUX" ]] then
+  export flavor='conda'
+  source $HOME/.tmux/plugins/tmux-conda-inherit/conda-inherit.sh
+fi
