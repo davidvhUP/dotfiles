@@ -116,6 +116,29 @@ return{
                 {'williamboman/mason-lspconfig.nvim'},
             },
             config = function()
+				require("cmp").setup({
+					sources = {
+						-- {
+						-- 	name = "spell",
+						-- 	option = {
+						-- 		keep_all_entries = false,
+						-- 		enable_in_context = function()
+						-- 			return true
+						-- 		end,
+						-- 		preselect_correct_word = true,
+						-- 	},
+							{
+								name = "cmp_r"
+							},
+							{
+								name = "nvim_lsp"
+							},
+						{
+							name = "dictionary",
+							keyword_length = 2,
+						},
+					}
+				})
                 -- This is where all the LSP shenanigans will live
                 local lsp_zero = require('lsp-zero')
                 lsp_zero.extend_lspconfig()
@@ -130,7 +153,7 @@ return{
                     ensure_installed = {
                         "pyright",
                         "lua_ls",
-                        "r_language_server",
+                        "r_language_server"
                     },
                     handlers = {
                         lsp_zero.default_setup,
@@ -144,6 +167,17 @@ return{
             end
         },
 	},
+
+	{
+		"uga-rosa/cmp-dictionary",
+		config = function()
+			require("cmp_dictionary").setup({
+				paths = { "/usr/share/dict/british-english" },
+				exact_length = 2,
+			})
+		end,
+	},
+
 
 	-- Trouble (viewing lsp diagnostics)
 	{
