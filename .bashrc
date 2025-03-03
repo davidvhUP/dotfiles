@@ -27,6 +27,8 @@ alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
+# ls colours
+export LS_COLORS='ow=1;34:'
 
 # Autostart Tmux
 # Adapted from https://unix.stackexchange.com/a/113768/347104
