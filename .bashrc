@@ -15,7 +15,7 @@ eval "$(zoxide init bash)"
 alias git_tree="git log --graph --topo-order --pretty='\''%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N\'' '"
 #alias vim=nvim
 #alias vim=/usr/bin/nvim
-alias oo='z /mnt/d/My\ Drive\ \(Personal\)/Obsidian\ Vault/;nvim .'
+alias oo='z /mnt/d/My\ Drive\ \(Personal\)/Obsidian\ Vault/Programming;nvim .'
 alias archive='tar -vczf'
 alias fzf='fzf-tmux -p'
 alias ollama-kill='sudo systemctl stop ollama'
