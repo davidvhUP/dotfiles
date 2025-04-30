@@ -28,11 +28,11 @@ symbol = " "
 symbol = " "
 
 [conda]
-format = "(fg:conda)[| $symbol$environment](fg:conda)"
-style = "bg:conda fg:text_color"
+format = "| ($symbol$environment)"
+# style = "bg:conda fg:text_color"
 ignore_base = false
 disabled=false
-# symbol = ""
+# symbol = "৹"
 
 [crystal]
 symbol = " "
@@ -43,9 +43,9 @@ symbol = " "
 [directory]
 format = " (fg:directory)[ $path ]($style)[$read_only]($read_only_style)(fg:directory)"
 truncation_length = 2
-style = "fg:text_color bg:directory"
-read_only_style = "fg:text_color bg:directory"
-before_repo_root_style = "fg:text_color bg:directory"
+# style = "fg:text_color bg:directory"
+# read_only_style = "fg:text_color bg:directory"
+# before_repo_root_style = "fg:text_color bg:directory"
 truncation_symbol = "…/"
 truncate_to_repo = true
 read_only ="  "
@@ -209,7 +209,7 @@ symbol = " "
 [username]
 style_user = 'os'
 style_root = 'os_admin'
-format = '($style) ($user)(bg:$style fg:text_color) ($style)'
+format = '($style) ($user)($style) ($style)'
 disabled = false
 show_always = true
 
@@ -218,7 +218,7 @@ success_symbol = "[→](fg:arrow)"
 error_symbol = "[→](fg:red)"
 
 [cmd_duration]
-format = " (fg:duration)[ $duration]($style)(fg:duration)"
+format = "- (fg:duration)[ $duration]($style)(fg:duration)"
 style = "fg:text_light bg:duration"
 min_time = 500
 
@@ -226,4 +226,4 @@ min_time = 500
 disabled = false
 format = " | (fg:time)[ $time]($style)(fg:time) "
 time_format = "%H:%M"
-style = "fg:text_color bg:time"
+# style = "fg:text_color bg:time"
