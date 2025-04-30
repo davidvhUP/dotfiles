@@ -50,6 +50,7 @@ export HISTSIZE=10000 # Increase history size
 export PATH=$PATH:/usr/local/stata
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
+export PATH=$PATH:/usr/local/bin
 
 
 # Activate fzf key binds
@@ -80,3 +81,6 @@ if [[ -n "$TMUX" ]] then
   export flavor='conda'
   source $HOME/.tmux/plugins/tmux-conda-inherit/conda-inherit.sh
 fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(thefuck --alias)"
