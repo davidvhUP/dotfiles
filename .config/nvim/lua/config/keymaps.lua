@@ -40,6 +40,7 @@ vim.keymap.set("n", "<leader>da", ":DapContinue<cr>")
 -- co-pilot
 -- vim.keymap.set({ 'n', 'v' }, '<leader>g', ':Gen<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gc', ':Gen Chat<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>ga', ':Gen Ask<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gr', ':Gen Review_Code<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>ge', ':Gen Enhance_Code<CR>')
 vim.keymap.set("n", "<leader>gm", ":lua require('gen').select_model()<CR>")
@@ -57,6 +58,7 @@ vim.keymap.set("n", "<leader>nd", ":Noice dismiss<CR>", {desc = "Dismiss Noice M
 
 -- Dashboard
 vim.keymap.set("n", "<leader>d", ":Dashboard<CR>")
+vim.keymap.set("n", "<leader>cd", ":bd%<CR>:Dashboard<CR>")
 
 -- list 
 vim.keymap.set("n", "<leader>ls", ":lua vim.diagnostic.setloclist()<cr>")
@@ -69,3 +71,5 @@ vim.keymap.set("n", "<leader>cl", ":Trouble lsp toggle focus=false win.position=
 vim.keymap.set("n", "<leader>xL", ":Trouble loclist toggle<CR>")
 vim.keymap.set("n", "<leader>xQ", ":Trouble qflist toggle<CR>")
 
+-- repl
+vim.keymap.set("n", "<leader>ri", ":ReplIpython<CR>")
