@@ -2,7 +2,7 @@ return{
 	        -- gen.nvim model
         { "David-Kunz/gen.nvim",
         opts = {
-            model = "deepseek-coder:6.7b-instruct", -- The default model to use.
+            model = "qwen2.5-coder:1.5b-instruct", -- The default model to use.
             host = "localhost", -- The host running the Ollama service.
             port = "11434", -- The port on which the Ollama service is listening.
             quit_map = "q", -- set keymap for close the response window
