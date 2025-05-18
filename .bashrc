@@ -48,6 +48,7 @@ export PATH=$PATH:/home/davidvh/Scripts
 export EDITOR=ewrap.sh
 export HISTSIZE=10000 # Increase history size
 export PATH=$PATH:/usr/local/stata
+export PATH=$PATH:/home/davidvh/.local/bin
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 export PATH=$PATH:/usr/local/bin
