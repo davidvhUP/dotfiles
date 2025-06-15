@@ -43,14 +43,14 @@ return{
                 workspaces = {
                     {
                         name = "Obsidian Vault",
-                        path = "/mnt/d/My Drive (Personal)/Obsidian Vault/",
+                        path = "/home/davidvh/Documents/Obsidian_vault",
                     },
                 },
                 daily_notes = {
                     -- Optional, if you keep daily notes in a separate directory.
                     folder = "Periodic notes/Daily Notes",
                     -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-                    template = "/mnt/d/My Drive (Personal)/Obsidian Vault/Templates/Daily Review.md"
+                    template = "/home/davidvh/Documents/Obsidian_vault/Templates/Daily Review.md"
                 },
                 completion = {
                     -- Set to false to disable completion.
@@ -59,7 +59,7 @@ return{
                     min_chars = 2,
                 },
                 templates = {
-                    subdir = "/mnt/d/My Drive (Personal)/Obsidian Vault/Templates",
+                    subdir = "/home/davidvh/Documents/Obsidian_vault/Templates",
                 },
             },
         },
