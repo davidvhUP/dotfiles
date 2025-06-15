@@ -49,6 +49,7 @@ vim.keymap.set("n", "<leader>gm", ":lua require('gen').select_model()<CR>")
 vim.keymap.set({ 'n' }, '<leader>ot', ':ObsidianToday<CR>')
 vim.keymap.set({ 'n' }, '<leader>onc', ':ObsidianTemplate Coding notes.md<CR>')
 vim.keymap.set({ 'n' }, '<leader>on', ':ObsidianTemplate Default.md<CR>')
+vim.keymap.set({ 'n' }, '<leader>oq', ':ObsidianQuickSwitch<CR>')
 
 -- Gitsigns
 vim.keymap.set("n", "<leader>gs", ":Gitsigns preview_hunk_inline<CR>", {})
