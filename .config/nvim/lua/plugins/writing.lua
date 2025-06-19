@@ -8,4 +8,10 @@ return{
 			vim.g.vimtex_view_method = "zathura"
 		end
 	},
+
+    {
+        "brianhuster/autosave.nvim",
+        event="InsertEnter",
+        opts = {} -- Configuration here
+    },
 }
