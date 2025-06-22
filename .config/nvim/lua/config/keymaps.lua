@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>ok", ":!mv '%:p' /mnt/d/Google\\ Drive/Obsidian\\ v
 vim.keymap.set("n", "<leader>odd", ":!rm '%:p' <cr>:bd<cr>")
 
 -- python comment block
-vim.keymap.set("n", "<leader>cb", "i'''<esc>o'''<esc>")
+vim.keymap.set('n', '<leader>cb', 'i"""<esc>o"""<esc>')
 
 -- fenced code block
 vim.keymap.set("n", "<leader>fc", "i```<esc>o```<esc>")
@@ -74,3 +74,7 @@ vim.keymap.set("n", "<leader>xQ", ":Trouble qflist toggle<CR>")
 
 -- repl
 vim.keymap.set("n", "<leader>ri", ":ReplIpython<CR>")
+
+-- pandoc shortcuts
+vim.keymap.set("n", "<leader>pdm", ":!pandoc -s -o ~/Documents/%:r.pdf -f markdown -t pdf -V indent=true -V geometry:margin=1in %<CR>")
+
