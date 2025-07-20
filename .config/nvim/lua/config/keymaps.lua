@@ -81,3 +81,6 @@ vim.keymap.set("n", "<leader>pdm", ":!pandoc -s -o ~/Documents/%:r.pdf -f markdo
 -- Autosave
 vim.keymap.set("n", "<leader>as", ":Autosave toggle<CR>")
 
+-- nnn picker
+
+vim.keymap.set("n", "<leader>np", ":NnnPicker<CR>")
