@@ -73,7 +73,7 @@ vim.keymap.set("n", "<leader>xL", ":Trouble loclist toggle<CR>")
 vim.keymap.set("n", "<leader>xQ", ":Trouble qflist toggle<CR>")
 
 -- repl
-vim.keymap.set("n", "<leader>ri", ":ReplIpython<CR>")
+-- vim.keymap.set("n", "<leader>ri", ":ReplIpython<CR>")
 
 -- pandoc shortcuts
 vim.keymap.set("n", "<leader>pdm", ":!pandoc -s -o ~/Documents/%:r.pdf -f markdown -t pdf -V indent=true -V geometry:margin=1in %<CR>")
