@@ -20,9 +20,11 @@ return{
         end,
    },
 
-   -- nnn
-   -- {
-	  --  "mcchrish/nnn.vim",
-   -- },
+   {
+	   "luukvbaal/nnn.nvim",
+	   config = function()
+		   require("nnn").setup()
+	   end
+   }
 
 }
