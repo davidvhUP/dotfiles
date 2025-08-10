@@ -191,4 +191,13 @@ return{
 			require("image_preview").setup()
 		end
 	},
+
+	{
+		"NStefan002/screenkey.nvim",
+		lazy = false,
+		version = "*", 
+		config = function()
+			require("screenkey").setup()
+		end
+	},
 }
