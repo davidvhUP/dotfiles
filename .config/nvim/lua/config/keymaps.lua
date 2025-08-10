@@ -92,3 +92,5 @@ vim.keymap.set("n", "<leader>np", ":NnnPicker<CR>")
 -- writing shortcut
 vim.keymap.set("n", "<leader>wr", ":set linebreak<CR> :set spell<CR>")
 
+-- clear screen
+vim.keymap.set("n", "<leader>c", ":noh<CR>")
