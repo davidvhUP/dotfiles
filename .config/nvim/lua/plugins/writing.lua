@@ -14,4 +14,26 @@ return{
         event="InsertEnter",
         opts = {} -- Configuration here
     },
+
+	{ 'nvim-telescope/telescope-symbols.nvim',
+
+},
+
+	-- in your lazy.nvim configuration
+	{
+		'L3MON4D3/LuaSnip',
+		-- follow the instructions on their GitHub page for setup
+		dependencies = {
+			-- optional, but highly recommended for autocompletion
+			'rafamadriz/friendly-snippets',
+		},
+		config = function()
+			-- This is important to load the snippets from friendly-snippets
+			require("luasnip.loaders.from_vscode").lazy_load()
+			-- You might also have this if you have custom Lua snippets:
+			-- require("luasnip.loaders.from_lua").lazy_load()
+		end
+	}
+
+
 }
