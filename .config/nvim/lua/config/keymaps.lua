@@ -22,6 +22,10 @@ vim.keymap.set("n", "<leader>fc", "i```<esc>o```<esc>")
 -- Telescope
 vim.keymap.set("n", "<leader>pf", ":Telescope find_files hidden=true<cr>") vim.keymap.set("n", "<C-g>", ":Telescope git_files<cr>")
 vim.keymap.set("n", "<leader>ps", ":Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>tr", ":Telescope registers<cr>")
+vim.keymap.set("n", "<leader>ts", ":Telescope spell_suggest<cr>")
+vim.keymap.set("n", "<leader>tm", ":Telescope marks<cr>")
+vim.keymap.set("n", "<leader>lr", ":Telescope lsp_references<cr>")
 
 -- tree
 vim.keymap.set("n", "<leader>ft", ":NvimTreeFindFileToggle<cr>")
