@@ -88,3 +88,7 @@ vim.keymap.set("n", "<leader>as", ":Autosave toggle<CR>")
 -- nnn picker
 
 vim.keymap.set("n", "<leader>np", ":NnnPicker<CR>")
+
+-- writing shortcut
+vim.keymap.set("n", "<leader>wr", ":set linebreak<CR> :set spell<CR>")
+
