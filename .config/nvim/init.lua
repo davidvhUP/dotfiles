@@ -43,3 +43,8 @@ imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
 smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 ]]
 
+-- gen.nvim
+require('gen').prompts['Make_Concise'] = {
+  prompt = "Modify the following text to make it more concise and easier to read, just output the final text without additional quotes around it:\n$text",
+  replace = true,
+}
