@@ -62,8 +62,8 @@ vim.keymap.set("n", "<leader>gs", ":Gitsigns preview_hunk_inline<CR>", {})
 vim.keymap.set("n", "<leader>nd", ":Noice dismiss<CR>", {desc = "Dismiss Noice Message"})
 
 -- Dashboard
-vim.keymap.set("n", "<leader>d", ":Dashboard<CR>")
-vim.keymap.set("n", "<leader>cd", ":bd%<CR>:Dashboard<CR>")
+vim.keymap.set("n", "<leader>d", ":Dashboard<CR>:cd<CR>")
+vim.keymap.set("n", "<leader>cd", ":bd%<CR>:Dashboard<CR>:cd<CR>")
 
 -- list 
 vim.keymap.set("n", "<leader>ls", ":lua vim.diagnostic.setloclist()<cr>")
