@@ -26,7 +26,7 @@ return{
 		run = ":TSUpdate",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "markdown", "markdown_inline", "lua", "python", "r", "rnoweb", "html", "yaml", "csv" },
+				ensure_installed = { "markdown", "lua", "python", "r", "rnoweb", "html", "yaml", "csv" },
 				highlight = {
 					enable = true,
 				},
