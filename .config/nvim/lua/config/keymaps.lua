@@ -58,7 +58,8 @@ vim.keymap.set({ 'n' }, '<leader>on', ':ObsidianTemplate Default.md<CR>')
 vim.keymap.set({ 'n' }, '<leader>oq', ':ObsidianQuickSwitch<CR>')
 
 -- Gitsigns
-vim.keymap.set("n", "<leader>gs", ":Gitsigns preview_hunk_inline<CR>", {})
+vim.keymap.set({ 'n', 'v' }, "<leader>gd", ":Gitsigns diffthis<CR>", {})
+vim.keymap.set({ 'n', 'v' }, "<leader>hs", ":Gitsigns stage_hunk<CR>", {})
 
 -- Dismiss Noice Messages
 vim.keymap.set("n", "<leader>nd", ":Noice dismiss<CR>", {desc = "Dismiss Noice Message"})
