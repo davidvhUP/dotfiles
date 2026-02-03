@@ -26,6 +26,8 @@ vim.keymap.set("n", "<leader>tr", ":Telescope registers<cr>")
 vim.keymap.set("n", "<leader>ts", ":Telescope spell_suggest<cr>")
 vim.keymap.set("n", "<leader>tm", ":Telescope marks<cr>")
 vim.keymap.set("n", "<leader>lr", ":Telescope lsp_references<cr>")
+vim.keymap.set("n", "<leader>lk", ":Telescope keymaps<cr>")
+vim.keymap.set("n", "<leader>lb", ":Telescope buffers<cr>")
 
 -- tree
 vim.keymap.set("n", "<leader>ft", ":NvimTreeFindFileToggle<cr>")
