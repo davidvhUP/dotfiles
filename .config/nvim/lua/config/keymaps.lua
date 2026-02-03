@@ -97,3 +97,9 @@ vim.keymap.set("n", "<leader>wr", ":set linebreak<CR> :set spell<CR>")
 
 -- clear screen
 vim.keymap.set("n", "<leader>c", ":noh<CR>")
+
+-- FzfLua
+vim.keymap.set("n", "<leader>fd", ":FzfLua zoxide<CR>")
+
+-- Tmux runner
+vim.keymap.set("n", "<leader>oc", ":VtrKillRunner<CR>")
