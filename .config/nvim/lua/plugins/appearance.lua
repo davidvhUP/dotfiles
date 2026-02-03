@@ -128,6 +128,13 @@ return{
 						},
 						shortcut_type = { 'number'
 					},
+					project = {
+						enable = true,
+						limit = 6,  -- Max projects shown
+						icon = '📁 ',  -- Custom icon
+						label = 'Recent Projects:',
+						action = 'Telescope find_files cwd= ',  -- Or your picker
+					},
 					hide = {
 						tabline= true, -- hide statusline from dashboard
 					},
