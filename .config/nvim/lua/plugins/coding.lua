@@ -121,8 +121,8 @@ return{
 						command = {"bash"}
 					},
 					python = {
-						command = {"ipython"},  -- or { "ipython", "--no-autoindent" }
-						format = common.bracketed_paste_python,
+						command = {"ipython", "--no-autoindent"},  -- or { "ipython", "--no-autoindent" }
+						format = require("iron.fts.common").bracketed_paste,
 						block_dividers = { "# %%", "#%%" },
 					}
 				},
@@ -136,7 +136,7 @@ return{
 				end,
 				-- How the repl window will be displayed
 				-- See below for more information
-				repl_open_cmd = view.split.vertical.rightbelow("%40"),
+				-- repl_open_cmd = view.split.vertical.("%40"),
 
 				-- repl_open_cmd can also be an array-style table so that multiple 
 				-- repl_open_commands can be given.
@@ -147,10 +147,10 @@ return{
 				-- toggle_repl_with_cmd_1, ..., toggle_repl_with_cmd_k
 				-- For example,
 				-- 
-				-- repl_open_cmd = {
-					--   view.split.vertical.rightbelow("%40"), -- cmd_1: open a repl to the right
-					--   view.split.rightbelow("%25")  -- cmd_2: open a repl below
-					-- }
+				repl_open_cmd = {
+					  view.split.vertical.rightbelow("%30"), -- cmd_1: open a repl to the right
+					  -- view.split.right("%25")  -- cmd_2: open a repl below
+					}
 
 				},
 				-- Iron doesn't set keymaps by default anymore.
@@ -177,7 +177,7 @@ return{
 					cr = "<space>s<cr>",
 					interrupt = "<space>s<space>",
 					exit = "<space>sq",
-					clear = "<space>cl",
+					-- clear = "<space>cl",
 				},
 				-- If the highlight is on, you can change how it looks
 				-- For the available options, check nvim_set_hl
@@ -186,6 +186,13 @@ return{
 				},
 				ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
 			})
+			vim.keymap.set("n", "<leader>si", function()
+				vim.ui.input({ prompt = "IronSend to IPython: " }, function(input)
+					if input and input ~= "" then
+						vim.cmd("IronSend " .. input)
+					end
+				end)
+			end, { desc = "IronSend: Send command to REPL" })
 		end,
 	},
 
