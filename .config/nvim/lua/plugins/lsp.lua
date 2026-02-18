@@ -50,8 +50,30 @@ return{
                         expand = function(args)
                             require('luasnip').lsp_expand(args.body)
                         end,
-                    },
-                })
+					},
+
+					sources = cmp.config.sources({
+						{ name = 'nvim_lsp' },
+						{ name = 'luasnip' }, 
+						{ 
+							name = 'buffer',
+							keyword_length=2
+					},
+						{ name = 'path' },
+					}),
+
+					matching = {
+						disallow_symbol_nonprefix_matching = false,
+						disallow_fullfuzzy_matching = false,          -- allow more loose matches
+						disallow_partial_fuzzy_matching = false,      -- ← important: enables partial fuzzy
+						disallow_prefix_unmatching = false,
+					},
+
+					experimental = {
+						ghost_text = true,   
+					},
+
+				})
             end
         },
 		{ "windwp/nvim-ts-autotag", 
@@ -77,6 +99,9 @@ return{
 
         {
             "hrsh7th/cmp-cmdline",
+			dependencies = {
+				'saadparwaiz1/cmp_luasnip',
+			},
             config = function()
                 local lsp_zero = require('lsp-zero')
                 lsp_zero.extend_cmp()
@@ -86,9 +111,10 @@ return{
                     cmp.setup.cmdline('/', {
                         mapping = cmp.mapping.preset.cmdline(),
                         sources = {
-                            { name = 'buffer' }
+                            { name = 'buffer',
                         }
-                    })
+                    }
+				})
                     -- `:` cmdline setup.
                     cmp.setup.cmdline(':', {
                         mapping = cmp.mapping.preset.cmdline(),
@@ -133,6 +159,9 @@ return{
 							{
 								name = "nvim_lsp"
 							},
+							{
+								name = "luasnip",
+							},
 						{
 							name = "dictionary",
 							keyword_length = 2,
@@ -153,7 +182,8 @@ return{
                     ensure_installed = {
                         "pyright",
                         "lua_ls",
-                        "r_language_server"
+                        "r_language_server",
+						"gopls"
                     },
                     handlers = {
                         lsp_zero.default_setup,
