@@ -288,4 +288,36 @@ return{
 		},
 	}
 
+	{
+		{
+			"ThePrimeagen/harpoon",
+			branch = "harpoon2",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",           -- ← add this
+			},
+
+			config = function()
+				local harpoon = require("harpoon")
+				harpoon:setup()   -- or harpoon:setup({ … your settings … })
+				-- keymaps
+				vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+				vim.keymap.set("n", "<leader>hr", function() harpoon:list():remove() end)
+				vim.keymap.set("n", "<leader>hc", function() harpoon:list():clear() end)
+				vim.keymap.set("n", "<leader>ho", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+				vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)
+				vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end)
+				vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end)
+				vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end)
+				-- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+				-- Telescope
+				require("telescope").load_extension("harpoon")
+				vim.keymap.set("n", "<C-e>", function()
+					require("telescope").extensions.harpoon.marks(
+						{
+							initial_mode = 'normal'
+						})
+				end, { desc = "Harpoon marks (Telescope)" })
+			end,
+		}
 	}
