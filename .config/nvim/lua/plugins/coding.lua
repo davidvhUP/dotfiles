@@ -1,25 +1,43 @@
 return{
-	-- autoclose
-	{ 'm4xshen/autoclose.nvim',
-	config = function()
-		require("autoclose").setup({
-			keys = {
-				["("] = { escape = false, close = true, pair = "()" },
-				["["] = { escape = false, close = true, pair = "[]" },
-				["{"] = { escape = false, close = true, pair = "{}" },
-				['"'] = { escape = true, close = true, pair = '""' },
-				["'"] = { escape = true, close = true, pair = "''" },
-				["`"] = { escape = true, close = true, pair = "``" },
-			},
-			options = {
-				disabled_filetypes = { "text" },
-				disable_when_touch = false,
-				touch_regex = "[%w(%[{]",
-				pair_spaces = false,
-				auto_indent = true,
-				disable_command_mode = false,},
+	-- Autopairs
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		dependencies = { "hrsh7th/nvim-cmp" },  -- only if you use nvim-cmp
+		config = function()
+			local npairs = require("nvim-autopairs")
+
+			npairs.setup({
+				-- Core behavior similar to your autoclose
+				disable_filetype     = { "TelescopePrompt", "vim", "text" },  -- like your disabled_filetypes
+				disable_in_macro     = false,
+				disable_in_visualblock = false,
+				disable_in_replace_mode = true,   -- sane default, avoids weirdness in :s///
+				ignored_next_char   = "[%w]",     -- ← key fix: no autopair if next char is letter/digit → solves 'don't / it's
+				enable_moveright     = true,
+				enable_afterquote    = true,      -- adds closing quote after typing one
+				enable_check_bracket_line = true, -- avoids adding closing pair if one already exists on line
+				check_ts             = true,      -- enable Treesitter check (recommended, needs nvim-treesitter)
+				ts_config = {
+					lua = { 'string' },             -- don't autopair inside lua strings, add others as needed
+					-- javascript = { 'template_string' }, etc.
+				},
+				map_cr               = true,      -- <CR> expands pairs nicely (e.g. { → {\n\t|\n})
+				map_bs               = true,      -- backspace deletes pair if empty
+				auto_indent          = true,      -- like your auto_indent = true
+				-- fast_wrap            = {},     -- enable later if you want <M-e> style wrapping
 			})
-		end
+
+			-- If using nvim-cmp (very common)
+			if pcall(require, "cmp") then
+				local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+				local cmp = require("cmp")
+				cmp.event:on(
+					'confirm_done',
+					cmp_autopairs.on_confirm_done()
+				)
+			end
+		end,
 	},
 
 	--  code commenter
