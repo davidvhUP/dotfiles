@@ -222,4 +222,37 @@ return{
 
 	},
 
+	-- lazy.nvim: 
+	{
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			'nvimtools/hydra.nvim',
+		},
+		opts = {},
+		cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+		keys = {
+			{
+				mode = { 'v', 'n' },
+				'<Leader>m',
+				'<cmd>MCstart<cr>',
+				desc = 'Create a selection for selected text or word under the cursor',
+			},
+		},
+	},
+
+	{"christoomey/vim-tmux-runner",
+	config = function()
+		vim.g.VimuxOrientation = "h"       -- horizontal split (right pane)
+		vim.g.VimuxHeight = "40"           -- % height of runner pane
+		vim.g.VimuxUseNearest = 1          -- try to reuse nearest pane if possible
+
+		-- Example mappings
+		vim.keymap.set("n", "<leader>or", ":VtrOpenRunner<CR>",   { desc = "Open tmux runner" })
+		vim.keymap.set("n", "<leader>rs", ":VtrSendFile<CR>",     { desc = "Run current file" })
+		vim.keymap.set("n", "<leader>rl", ":VtrSendKeysLastCommand<CR>", { desc = "Re-run last" })
+		--vim.keymap.set("v", "<leader>rs", ":VtrSendLinesToRunner<CR>",  { desc = "Send selection" })
+	end,
+}
+
 }
