@@ -41,7 +41,7 @@ return{
 	},
 		--'/home/davidvh/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
 		config = function()
-			require('dap-python').setup('/opt/miniconda3/bin/python')
+			require('dap-python').setup('python')
 			local dap = require ('dap')
 				-- dap.adapters.python = {
 				-- 	type = 'executable',
@@ -54,8 +54,8 @@ return{
 						request = 'launch',
 						name = "Launch file",
 						program = "${file}";
-						pythonPath = '/opt/miniconda3/bin/python',
-						cwd = "/"
+						-- pythonPath = '/home/davidvh/base-env/bin/python',
+						cwd = vim.fn.getcwd
 
 					},
 					{
@@ -63,11 +63,12 @@ return{
 						request = 'launch',
 						name = "Launch file with arguments",
 						program = "${file}",
+						cwd = vim.fn.getcwd,
 						args = function()
 							local args_string = vim.fn.input('Enter arguments (separated by spaces): ')
 							return vim.split(args_string, " +")
-						end,
-						pythonPath ='/opt/miniconda3/bin/python'
+						end --,
+						-- pythonPath ='/home/davidvh/base-env/bin/python'
 				},
 			}
 		end,
