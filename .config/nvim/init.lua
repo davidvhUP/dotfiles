@@ -11,6 +11,7 @@ require("plugins.lsp")
 require("plugins.R")
 require("plugins.secondBrain")
 require("plugins.writing")
+require("plugins.misc")
 
 -- remember folds
 local folds_augroup = vim.api.nvim_create_augroup("Folds", { clear=true })
