@@ -90,6 +90,11 @@ if [[ -z "$WAYLAND_DISPLAY" && "$XDG_VTNR" = 1 ]]; then
     exec Hyprland
 fi
 
+# Turn off all error beeps in zsh
+unsetopt BEEP
+# Turn off beeps specifically for ambiguous completions
+unsetopt LIST_BEEP
+
 # ────────────────────────────────────────────────────────────────────────────────
 #  FZF & KEY BINDINGS
 # ────────────────────────────────────────────────────────────────────────────────
