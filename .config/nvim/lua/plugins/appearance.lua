@@ -1,4 +1,22 @@
 return{
+
+		-- treesitter
+	{ "nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		run = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter").install({
+				"markdown", "lua", "python", "r", "rnoweb", "html", "yaml", "csv"
+			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
+			})
+		end,
+	},
+
 	-- Colour Scheme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000,
 	config = function()
@@ -21,18 +39,6 @@ return{
 		end
 	},
 
-		-- treesitter
-	{ "nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "markdown", "lua", "python", "r", "rnoweb", "html", "yaml", "csv" },
-				highlight = {
-					enable = true,
-				},
-			})
-		end,
-	},
 	
 	-- Noice (command popup)
 	{

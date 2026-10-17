@@ -1,3 +1,12 @@
+-- nvim 0.12 treesitter
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "lua", "bash", "markdown", "vim" },
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+  end,
+})
+
+-- Other options
 vim.opt.nu = true -- enable line numbers
 vim.opt.relativenumber = true -- relative line numbers
 
