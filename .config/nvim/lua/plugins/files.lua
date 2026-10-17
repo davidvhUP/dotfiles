@@ -25,7 +25,7 @@ return{
 	   config = function()
 		   require("nnn").setup()
 	   end
-   {
+   },
 
    {
 	   "ibhagwan/fzf-lua",
